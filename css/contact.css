@@ -1,2 +1,21 @@
 @import url('shared.css');
 /* Contact page specific styles */
+/* contact.css */
+main {
+    padding: 2rem;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+main h2 {
+    font-size: 2rem;
+    color: #c81e0d;
+    margin-bottom: 1rem;
+}
+
+main p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #333;
+}

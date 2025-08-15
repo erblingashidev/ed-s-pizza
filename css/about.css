@@ -1,2 +1,31 @@
 @import url('shared.css');
 /* About page specific styles */
+/* about.css */
+main {
+    padding: 2rem;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+main h2 {
+    font-size: 2rem;
+    color: #c81e0d;
+    margin-bottom: 1rem;
+}
+
+section {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+iframe {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+@media (max-width: 600px) {
+    iframe {
+        height: 200px !important;
+    }
+}

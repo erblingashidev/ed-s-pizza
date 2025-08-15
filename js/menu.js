@@ -53,6 +53,7 @@ const products = [
     { category: 'drinks', title: 'Ujë i gazuar', ingredients: 'Placeholder', price: '0.80€', image: 'assets/placeholder.jpg' }
 ];
 
+// Sample products data (same as you have now)
 function renderProducts(category) {
     const container = document.getElementById('products-container');
     container.innerHTML = '';
@@ -74,14 +75,60 @@ function renderProducts(category) {
 const categoryButtons = document.querySelectorAll('.category');
 categoryButtons.forEach(btn => {
     btn.addEventListener('click', function() {
+        // Hide welcome and show menu
+        document.getElementById('welcome-section').style.display = 'none';
+        document.getElementById('menu-section').style.display = 'block';
+
         categoryButtons.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         renderProducts(btn.dataset.category);
     });
 });
 
-// Initial render
-if (categoryButtons.length > 0) {
-    categoryButtons[0].classList.add('active');
-    renderProducts(categoryButtons[0].dataset.category);
+// Hide Offers button if no offers
+const offersButton = document.querySelector('[data-category="offers"]');
+if (!products.some(p => p.category === 'offers')) {
+    offersButton.style.display = 'none';
 }
+
+// On load → only show welcome page
+document.getElementById('welcome-section').style.display = 'flex';
+document.getElementById('menu-section').style.display = 'none';
+
+// Bounce the categories carousel to show it's scrollable
+function bounceCategoriesCarousel() {
+    const carousel = document.querySelector('.categories-carousel');
+
+    if (!carousel || carousel.scrollWidth <= carousel.clientWidth) return; // skip if not scrollable
+
+    let bounceCount = 0;
+    const maxBounces = 2;
+
+    function bounceOnce() {
+        carousel.scrollTo({ left: 100, behavior: 'smooth' });
+        setTimeout(() => {
+            carousel.scrollTo({ left: 0, behavior: 'smooth' });
+            bounceCount++;
+            if (bounceCount < maxBounces) {
+                setTimeout(bounceOnce, 500);
+            }
+        }, 500);
+    }
+
+    setTimeout(bounceOnce, 800); // delay to allow page render
+}
+
+// Call it once on page load
+window.addEventListener('load', bounceCategoriesCarousel);
+
+function setLayoutVars() {
+    const header = document.querySelector('header');
+    const navbar = document.querySelector('.navbar');
+    const root = document.documentElement;
+
+    root.style.setProperty('--header-height', `${header.offsetHeight}px`);
+    root.style.setProperty('--navbar-height', `${navbar.offsetHeight}px`);
+}
+
+window.addEventListener('load', setLayoutVars);
+window.addEventListener('resize', setLayoutVars);

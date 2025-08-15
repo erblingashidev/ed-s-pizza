@@ -1,2 +1,30 @@
 @import url('shared.css');
 /* Gallery page specific styles */
+/* gallery.css */
+main {
+    padding: 2rem;
+    text-align: center;
+}
+
+main h2 {
+    font-size: 2rem;
+    color: #c81e0d;
+    margin-bottom: 0.5rem;
+}
+
+main p {
+    margin-bottom: 2rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-grid img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    object-fit: cover;
+}

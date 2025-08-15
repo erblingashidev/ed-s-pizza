@@ -1,3 +1,91 @@
 @import url('shared.css');
 /* Menu page specific styles */
 /* No page-specific styles remain here. All menu styles are now in shared.css. */
+/* menu.css */
+
+/* Default for desktop */
+#welcome-section {
+    position: relative;
+    min-height: calc(100dvh - var(--header-height));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('assets/welcome-bg.jpg') center/cover no-repeat;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+/* On mobile, subtract both header and bottom navbar height */
+@media (max-width: 767px) {
+    #welcome-section {
+        min-height: calc(100dvh - var(--header-height) - var(--navbar-height));
+    }
+}
+
+
+#welcome-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#welcome-section p {
+    font-size: 1.2rem;
+}
+
+#welcome-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+.welcome-bg {
+    position: relative;
+    z-index: 1;
+}
+
+.categories-carousel {
+    border-radius: 16px 16px 16px 16px;
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: inset -1px -2px -1px #e3e3e3;
+}
+
+.category {
+    background-color: #c81e0d;
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.category:hover {
+    background-color: #a8160a;
+}
+
+#products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.product-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}

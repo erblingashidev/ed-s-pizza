@@ -39,16 +39,25 @@
         </a>
     </nav>
     <section class="categories-carousel">
-        <button class="category" data-category="offers">Offers</button>
+        <button class="category" data-category="offers">Ofertat</button>
         <button class="category" data-category="mini">Pizza Mini</button>
         <button class="category" data-category="30cm">Pizza 30cm</button>
         <button class="category" data-category="50cm">Pizza 50cm</button>
         <button class="category" data-category="calzone">Calzone</button>
-        <button class="category" data-category="drinks">Drinks</button>
+        <button class="category" data-category="drinks">Pijet</button>
     </section>
-    <section id="products-container">
-        <!-- Product cards will be rendered here by JS -->
+
+    <section id="welcome-section">
+        <div class="welcome-bg">
+            <h2>Mirë se vini tek <br>ED's Pizza 🍕</h2>
+            <p>Klikoni njërën nga kategoritë lart për të shfaqur menunë.</p>
+        </div>
     </section>
+
+    <section id="menu-section" style="display:none;">
+        <div id="products-container"></div>
+    </section>
+
     <script src="js/menu.js"></script>
 </body>
 </html>
