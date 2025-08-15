@@ -77,6 +77,13 @@
     padding: 1.5rem;
 }
 
+@media (max-width: 767px) {
+    #products-container {
+        padding-bottom: calc(var(--navbar-height) + 1rem); /* space for navbar + a bit extra */
+    }
+}
+
+
 .product-card {
     background: white;
     border-radius: 12px;

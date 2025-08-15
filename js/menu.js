@@ -132,3 +132,4 @@ function setLayoutVars() {
 
 window.addEventListener('load', setLayoutVars);
 window.addEventListener('resize', setLayoutVars);
+
